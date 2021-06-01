@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.romainrbn.projseio_basic.MainActivity">
+
+    <item
+        android:id="@+id/close_quiz_btn"
+        android:icon="@drawable/ic_baseline_close_24"
+        android:title="@string/logOutButtonTitle"
+        app:showAsAction="always"
+        android:orderInCategory="0"
+        />
+</menu>

@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Diagnostic du genou</string>
+    <string name="action_settings">Settings</string>
+    <string name="homeScreenTitle">Accueil</string>
+    <string name="next">Next</string>
+
+    <string name="loginPageTitle">Bienvenue !</string>
+    <string name="loginPageButtonTitle">Connexion</string>
+    <string name="loginActivityInfo">Pour commencer, veuillez entrer votre numéro RPPS.
+    Ce numéro n’est stocké sur votre appareil que durant votre
+    session puis est effacé. Il ne sort jamais de votre appareil.
+    En continuant, vous vous engagez à être un professionnel de
+    santé habilité.</string>
+    <string name="RPPSFieldPlaceholder">Numéro RPPS</string>
+    <string name="content_description_end_icon">Une icône de personne</string>
+    <string name="RPPSInputErrorMessage">Veuillez entrer un numéro RPPS valide.</string>
+    <string name="previous">Previous</string>
+    <string name="home_caption">Appuyez sur le bouton ci-dessous pour commencer un nouveau diagnostic.</string>
+    <string name="mainActivityInfo">Les données ne sont jamais sauvegardées, ni sur l\'appareil,
+        ni sur un serveur. Vous pourrez envoyer le diagnostic par courriel lors du résultat.</string>
+    <string name="sfaLogoDescription">Logo de la société française d\'arthroscopie</string>
+    <string name="doctorIllustrationDescription">Illustration d\'un docteur</string>
+    <string name="newQuizTitle">Nouveau diagnostic</string>
+    <string name="submitButtonQuestionTitle">SUIVANT</string>
+    <string name="revertButtonTitle">Précédent</string>
+    <string name="submitButtonFormTitle">VALIDER</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="not_answered_question_error">Veuillez répondre à la question pour continuer.</string>
+    <string name="logOutButtonTitle">Déconnexion</string>
+    <string name="logOutIndicationMessage">Veuillez appuyer sur le bouton Déconnexion afin de revenir à l\'écran précédent.</string>
+    <string name="examResultTitle">Résultat de l\'examen</string>
+</resources>

@@ -1,0 +1,53 @@
+[
+    {
+      "id": 0,
+      "intitule": "Qui fait l'inclusion ?",
+      "titre": "Médecin du sport",
+      "choix": ["Junior", "Senior"],
+      "scorable": false
+    },
+    {
+      "id": 1,
+      "intitule": "Douleur (EVA)",
+      "titre": "Évaluer la douleur lors du traumatisme",
+      "choix": ["1 - 2", "3 - 4", "5 - 6", "7 - 8", "9 - 10"],
+      "scorable": true
+    },
+    {
+      "id": 2,
+      "intitule": "Impotence fonctionnelle",
+      "titre": null,
+      "choix": [
+        "Reprise possible",
+        "Reprise temporaire",
+        "Arrêt de l'activité",
+        "Appui impossible"
+      ],
+      "scorable": true
+    },
+    {
+      "id": 3,
+      "intitule": "Craquement",
+      "titre": null,
+      "choix": ["Non", "Ressenti", "Audible"],
+      "scorable": true
+    },
+    {
+      "id": 4,
+      "intitule": "Instabilité",
+      "titre": null,
+      "choix": [
+        "Non",
+        "Sensation de dérobement à la reprise d'appui (patte folle)",
+        "Sensation de déboitement lors de l'accident (ou clac clac)"
+      ],
+      "scorable": true
+    },
+    {
+      "id": 5,
+      "intitule": "Épanchement",
+      "titre": "Votre genou a-t-il gonflé dans les 24h suivant le traumatisme ?",
+      "choix": ["Non", "Oui"],
+      "scorable": true
+    }
+]
