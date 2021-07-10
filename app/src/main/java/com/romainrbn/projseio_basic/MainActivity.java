@@ -3,6 +3,7 @@ package com.romainrbn.projseio_basic;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Permet d'assigner une action au bouton flottant (aller au quizz).
         FloatingActionButton fab = findViewById(R.id.fab);
-        Button logOutButton = findViewById(R.id.logOutButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,31 +36,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        logOutButton.setOnClickListener(new View.OnClickListener() {
+        ImageView imageView = findViewById(R.id.sfaLogo);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                logOut();
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.sofarthro.com/"));
+                startActivity(browserIntent);
             }
         });
-    }
-
-    /**
-     * Déconnecte l'utilisateur.
-     */
-    void logOut() {
-        SharedPreferences preferences = getSharedPreferences("preferences",
-                Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.clear();
-        editor.apply();
-        editor.clear();
-        finish();
-    }
-
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(getApplicationContext(), R.string.logOutIndicationMessage,
-                Toast.LENGTH_LONG).show();
     }
 
     /**

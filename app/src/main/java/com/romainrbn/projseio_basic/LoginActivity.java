@@ -3,8 +3,11 @@ package com.romainrbn.projseio_basic;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -20,19 +23,19 @@ import org.w3c.dom.Text;
 
 public class LoginActivity extends Activity {
 
+    String prevStarted = "yes";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final TextInputEditText editTextRPPS = (TextInputEditText) findViewById(R.id.textInputEditText);
         Button goHomeButton = (Button) findViewById(R.id.showHomeScreenBtn);
-        TextInputLayout inputLayout = (TextInputLayout) findViewById(R.id.textInputEditTextLayout);
 
         goHomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                handleGoHomeButtonClick(editTextRPPS);
+                handleGoHomeButtonClick();
             }
         });
 
@@ -41,25 +44,52 @@ public class LoginActivity extends Activity {
         root.setBackgroundColor(getResources().getColor(android.R.color.white));
     }
 
-    /**
-     * Permet de connecter l'utilisateur puis d'aller sur le menu principal en cas de réussite
-     * de connexion
-     * @param editText L'entrée correspondant au numéro RPPS entré par le médecin.
-     */
-    void handleGoHomeButtonClick(TextInputEditText editText) {
-        int nbCharactersInEdit = editText.getText().length();
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-        // TODO: Vérifier que le numéro RPPS correspond bien à un médecin dans la base de données
-        if(nbCharactersInEdit != 11) {
-            editText.setError(getString(R.string.RPPSInputErrorMessage));
-        } else {
-            editText.setError(null);
-
-            // On ouvre l'activité "MainActivity" contenant la page d'accueil
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
+        if(sharedPreferences.getBoolean(prevStarted, false)) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-            editText.setText("");
         }
+    }
+
+    /**
+     * Permet d'accéder au menu principal lors du premier lancement de l'application
+     */
+    void handleGoHomeButtonClick() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setTitle(R.string.alertTitle)
+                .setMessage(R.string.alertMessage)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // On ouvre l'activité "MainActivity" contenant la page d'accueil
+                        SharedPreferences sharedpreferences = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putBoolean(prevStarted, Boolean.TRUE);
+                        editor.apply();
+
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+
+                        finish();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null);
+
+        final AlertDialog dialog = builder.create();
+        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.colorPrimary));
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.colorPrimary));
+            }
+        });
+
+        dialog.show();
+
     }
 
     /**
