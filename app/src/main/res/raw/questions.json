@@ -1,46 +1,46 @@
 [
   {
     "id": 1,
-    "intitule": "Douleur (EVA)",
-    "titre": "Évaluer la douleur lors du traumatisme",
+    "intitule": "Pain (VAS)",
+    "titre": "Pain assessment at injury",
     "choix": ["1 - 2", "3 - 4", "5 - 6", "7 - 8", "9 - 10"],
     "scorable": true
   },
   {
     "id": 2,
-    "intitule": "Impotence fonctionnelle immédiate",
+    "intitule": "Direct functional impotence",
     "titre": null,
     "choix": [
-      "Reprise possible de l’activité",
-      "Reprise temporaire de l’activité",
-      "Arrêt de l'activité",
-      "Appui impossible"
+      "Return to activity was possible",
+      "Return to activity was temporary",
+      "Cessation of activity",
+      "Unable to weight bear"
     ],
     "scorable": true
   },
   {
     "id": 3,
-    "intitule": "Craquement à la blessure",
+    "intitule": "Cracking at injury",
     "titre": null,
-    "choix": ["Non", "Ressenti par le patient", "Audible par le patient ou l’entourage"],
+    "choix": ["None", "Felt by the patient", "Audible to the patient or family"],
     "scorable": true
   },
   {
     "id": 4,
-    "intitule": "Instabilité à la blessure",
+    "intitule": "Instability at injury",
     "titre": null,
     "choix": [
-      "Non",
-      "Sensation de dérobement à la reprise d'appui (patte folle)",
-      "Sensation de déboitement lors de l'accident (ou clac clac)"
+      "None",
+      "Giving way sensation at weight bearing",
+      "Dislocation sensation during the injury"
     ],
     "scorable": true
   },
   {
     "id": 5,
-    "intitule": "Épanchement",
-    "titre": "Votre genou a-t-il gonflé dans les 24h suivant le traumatisme ?",
-    "choix": ["Non", "Oui"],
+    "intitule": "Effusion",
+    "titre": "Was the knee swollen within the 24 hours following the injury?",
+    "choix": ["No", "Yes"],
     "scorable": true
   }
 ]

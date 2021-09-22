@@ -109,11 +109,17 @@ public class QuizActivity extends AppCompatActivity {
                 for(Integer i: scoresForQuestions) {
                     scoreSum += i;
                 }
-
                 Intent intent = new Intent(this, QuizResultActivity.class);
+                for(int i = 0 ; i < scoresForQuestions.size() ; i++) {
+                    int score1 = scoresForQuestions.get(i);
+                    String rep = questionsList.get(i).getChoix().get(score1);
+                    String intitule = questionsList.get(i).getIntitule();
+                    intent.putExtra("rep" + Integer.toString(i), rep);
+                    intent.putExtra("int" + Integer.toString(i), intitule);
+                }
                 intent.putExtra("score", scoreSum);
                 startActivity(intent);
-
+                finish();
             }
         }
     }

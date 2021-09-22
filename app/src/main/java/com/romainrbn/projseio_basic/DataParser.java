@@ -21,7 +21,7 @@ public class DataParser {
      * @return Le fichier JSON formatté en chaîne de caractères.
      */
     private String readJSONStringFromResources() {
-        InputStream XmlFileInputStream = context.getResources().openRawResource(R.raw.questions);
+        InputStream XmlFileInputStream = context.getResources().openRawResource(context.getResources().getIdentifier(context.getString(R.string.jsonFileName), "raw", context.getPackageName()));
         String jsonString = readTextFile(XmlFileInputStream);
 
         return jsonString;

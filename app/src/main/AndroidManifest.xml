@@ -9,8 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PdfPreviewActivity"></activity>
-        <activity android:name=".QuizResultActivity"></activity>
+        <provider
+            android:authorities="com.romainrbn.projseio_basic.provider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths">
+            </meta-data>
+        </provider>
+        <activity android:name=".ShareResultActivity"></activity>
+        <activity android:name=".PdfPreviewActivity" />
+        <activity android:name=".QuizResultActivity" />
         <activity
             android:name=".QuizActivity"
             android:screenOrientation="portrait"
